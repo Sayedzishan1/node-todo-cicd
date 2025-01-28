@@ -1,23 +1,26 @@
 pipeline {
-    agent new // This means that the pipeline will not run on any agent by default
+    agent new // Use any available agent
+
     stages {
         stage('Clone') {
             steps {
-                echo "cloning the repository"
-                git clone 'https://github.com/Sayedzishan1/node-todo-cicd.git' // This will clone the GitHub repository to the agent's workspace
+                echo "Cloning the repository"
+                git 'https://github.com/Sayedzishan1/node-todo-cicd.git' // Using Jenkins' git step
             }
         }
+
         stage('Build') {
-            echo "Building the image"
             steps {
-                sh 'docker build -t todo-app .'
+                echo "Building the Docker image"
+                sh 'docker build -t todo-app .' // Building the Docker image
             }
         }
+
         stage('Deploy') {
             steps {
-                echo "Deploying todo app"
-                sh 'docker-compose down'
-                sh 'docker-compose up -d'
+                echo "Deploying the Todo app"
+                sh 'docker-compose down'   // Bringing down any existing services
+                sh 'docker-compose up -d'  // Bringing the services up in detached mode
             }
         }
     }
