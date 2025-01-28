@@ -6,7 +6,7 @@ pipeline {
             agent { label 'agent' } // This stage will run on an agent with the label 'agent'
             steps {
                 echo "Cloning the repository"
-                git 'https://github.com/ajitfawade/node-todo-cicd.git' // Cloning the GitHub repository
+                git 'https://github.com/Sayedzishan1/node-todo-cicd.git' // Cloning the GitHub repository
             }
         }
 
