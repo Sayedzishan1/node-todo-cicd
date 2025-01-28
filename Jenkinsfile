@@ -5,7 +5,7 @@ pipeline {
             agent { label 'agent' } // This means that this stage will run on an agent with the label 'agent'
             steps {
                 echo "cloning the repository"
-                git 'https://github.com/ajitfawade/node-todo-cicd.git' // This will clone the GitHub repository to the agent's workspace
+                git 'https://github.com/Sayedzishan1/node-todo-cicd.git' // This will clone the GitHub repository to the agent's workspace
             }
         }
         stage('Build') {
