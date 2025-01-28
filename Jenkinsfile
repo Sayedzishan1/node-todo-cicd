@@ -1,7 +1,6 @@
 pipeline {
     agent new // Use any available agent
 
-    stages {
         stage('Clone') {
             steps {
                 echo "Cloning the repository"
@@ -23,5 +22,5 @@ pipeline {
                 sh 'docker-compose up -d'  // Bringing the services up in detached mode
             }
         }
-    }
+    
 }
