@@ -31,16 +31,20 @@ pipeline {
 
     post {
         success {
-            // Send success email when the build is successful
-            mail to: "$RECIPIENTS",
-                 subject: "Build Success: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
-                 body: "The build was successful!\n\nJob: ${env.JOB_NAME}\nBuild Number: ${env.BUILD_NUMBER}\nBuild URL: ${env.BUILD_URL}"
+            // Send success email when the build is successful using Email Extension Plugin
+            emailext(
+                to: "$RECIPIENTS",
+                subject: "Build Success: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+                body: "The build was successful!\n\nJob: ${env.JOB_NAME}\nBuild Number: ${env.BUILD_NUMBER}\nBuild URL: ${env.BUILD_URL}"
+            )
         }
         failure {
-            // Send failure email when the build fails
-            mail to: "$RECIPIENTS",
-                 subject: "Build Failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
-                 body: "The build has failed.\n\nJob: ${env.JOB_NAME}\nBuild Number: ${env.BUILD_NUMBER}\nBuild URL: ${env.BUILD_URL}"
+            // Send failure email when the build fails using Email Extension Plugin
+            emailext(
+                to: "$RECIPIENTS",
+                subject: "Build Failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
+                body: "The build has failed.\n\nJob: ${env.JOB_NAME}\nBuild Number: ${env.BUILD_NUMBER}\nBuild URL: ${env.BUILD_URL}"
+            )
         }
     }
 }
