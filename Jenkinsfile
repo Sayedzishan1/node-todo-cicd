@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        RECIPIENTS = 'sayed.zishan@neosoftmail.com'  // Define the recipients for email notifications
+        RECIPIENTS = 'shaikhshahid.ss.141@gmail.com'  // Define the recipients for email notifications
     }
 
     stages {
